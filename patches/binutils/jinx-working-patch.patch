@@ -1,5 +1,5 @@
 diff --git binutils-clean/bfd/config.bfd binutils-workdir/bfd/config.bfd
-index 0d7901175..816713c55 100644
+index 0d79011..816713c 100644
 --- binutils-clean/bfd/config.bfd
 +++ binutils-workdir/bfd/config.bfd
 @@ -665,6 +665,11 @@ case "${targ}" in
@@ -27,7 +27,7 @@ index 0d7901175..816713c55 100644
    i[3-7]86-*-lynxos*)
      targ_defvec=i386_elf32_vec
 diff --git binutils-clean/configure binutils-workdir/configure
-index bbfb59795..7eee314a3 100755
+index bbfb597..7eee314 100755
 --- binutils-clean/configure
 +++ binutils-workdir/configure
 @@ -3083,7 +3083,7 @@ case "${ENABLE_GOLD}" in
@@ -40,7 +40,7 @@ index bbfb59795..7eee314a3 100755
            *-*-linux*aout* | *-*-linux*oldld*)
              ;;
 diff --git binutils-clean/gas/configure.tgt binutils-workdir/gas/configure.tgt
-index 7c81bffa1..dc53f415a 100644
+index 7c81bff..dc53f41 100644
 --- binutils-clean/gas/configure.tgt
 +++ binutils-workdir/gas/configure.tgt
 @@ -229,6 +229,7 @@ case ${generic_target} in
@@ -52,7 +52,7 @@ index 7c81bffa1..dc53f415a 100644
    i386-*-haiku*)			fmt=elf em=haiku ;;
    i386-*-genode*)			fmt=elf ;;
 diff --git binutils-clean/ld/configure.tgt binutils-workdir/ld/configure.tgt
-index ea01ccf9a..9c57316f7 100644
+index ea01ccf..9c57316 100644
 --- binutils-clean/ld/configure.tgt
 +++ binutils-workdir/ld/configure.tgt
 @@ -384,6 +384,9 @@ i[3-7]86-*-linux-*)	targ_emul=elf_i386

@@ -983,6 +983,12 @@ EOF
     *:[Vv]inix:*:*)
 	GUESS="$UNAME_MACHINE-unknown-willowos-mlibc"
 	;;
+	x86_64:[Ww]illowos:*:*|i?86:[Ww]illowos:*:*)
+	GUESS="$UNAME_MACHINE-pc-willowos-mlibc"
+	;;
+    *:[Ww]illowos:*:*)
+	GUESS="$UNAME_MACHINE-unknown-willowos-mlibc"
+	;;
     *:Minix:*:*)
 	GUESS=$UNAME_MACHINE-unknown-minix
 	;;
