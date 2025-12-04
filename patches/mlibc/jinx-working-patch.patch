@@ -1,0 +1,17 @@
+diff --git mlibc-clean/meson.build mlibc-workdir/meson.build
+index 37f82008e..765746183 100644
+--- mlibc-clean/meson.build
++++ mlibc-workdir/meson.build
+@@ -265,6 +265,12 @@ elif host_machine.system() == 'astral'
+ 	internal_conf.set10('MLIBC_MAP_DSO_SEGMENTS', true)
+ 	internal_conf.set10('MLIBC_MAP_FILE_WINDOWS', true)
+ 	subdir('sysdeps/astral')
++elif host_machine.system() == 'willowos'
++	rtld_include_dirs += include_directories('sysdeps/willowos/include')
++	libc_include_dirs += include_directories('sysdeps/willowos/include')
++	internal_conf.set10('MLIBC_MAP_DSO_SEGMENTS', false)
++	internal_conf.set10('MLIBC_MAP_FILE_WINDOWS', false)
++	subdir('sysdeps/willowos')
+ elif host_machine.system() == 'menix'
+ 	rtld_include_dirs += include_directories('sysdeps/menix/include')
+ 	libc_include_dirs += include_directories('sysdeps/menix/include')

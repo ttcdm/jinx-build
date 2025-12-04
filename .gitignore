@@ -1,0 +1,4 @@
+.jinx-cache
+sources
+build/*
+!build/.jinx-parameters
