@@ -239,9 +239,10 @@ int sys_vm_unmap(void *pointer, size_t size) {//8
     asm volatile("syscall" : "=a"(ret): "D"(num), "S"(pointer), "d"(size): "memory");
 }
 
-
+//might be a time_t instead of uint64_t thing that was preventing mlibc from building
 //HERE remember to fill these in
-int sys_clock_get(int clock, uint64_t *secs, long *nanos) {
+//also we define time_t as int64_t inside willowOS but here idk if we should
+int sys_clock_get(int clock, time_t *secs, long *nanos) {
     int ret;
     //HERE add num as well
 }
