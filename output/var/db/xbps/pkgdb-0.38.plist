@@ -9,11 +9,11 @@
 		<key>architecture</key>
 		<string>x86_64</string>
 		<key>filename-sha256</key>
-		<string>f08ffe9163eb15fcfa3939b5386d44ab70b060dbf5e9a031306cca5cdfafc669</string>
+		<string>aa558be9ea55d314c29b54ec10ae0b5f1536398df4b96097823cd71d307e0c5a</string>
 		<key>filename-size</key>
-		<integer>461347</integer>
+		<integer>461320</integer>
 		<key>install-date</key>
-		<string>2025-12-04 06:20 EST</string>
+		<string>2025-12-04 15:30 EST</string>
 		<key>installed_size</key>
 		<integer>2865186</integer>
 		<key>metafile-sha256</key>
@@ -47,6 +47,8 @@
 		<integer>133680</integer>
 		<key>metafile-sha256</key>
 		<string>8b64e8cb969839844c6925f78173d5af09e5965d3689f329d6699a2d8a68a074</string>
+		<key>pkgname</key>
+		<string>mlibc-headers</string>
 		<key>pkgver</key>
 		<string>mlibc-headers-76810d90fd877b7b5908eede2fe83af5be53c4a5_1</string>
 		<key>repository</key>

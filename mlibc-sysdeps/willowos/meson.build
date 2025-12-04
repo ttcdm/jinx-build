@@ -2,10 +2,10 @@
 
 # ANCHOR: sources-and-includes
 sysdep_supported_options = {
-	'posix': false,
+	'posix': true,
 	'linux': false,
-	'glibc': false,
-	'bsd': false,
+	'glibc': true,
+	'bsd': true,
 }
 
 rtld_sources += files(
