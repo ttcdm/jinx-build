@@ -4,53 +4,22 @@
 <dict>
 	<key>_XBPS_ALTERNATIVES_</key>
 	<dict/>
-	<key>mlibc</key>
-	<dict>
-		<key>architecture</key>
-		<string>x86_64</string>
-		<key>filename-sha256</key>
-		<string>aa558be9ea55d314c29b54ec10ae0b5f1536398df4b96097823cd71d307e0c5a</string>
-		<key>filename-size</key>
-		<integer>461320</integer>
-		<key>install-date</key>
-		<string>2025-12-04 15:30 EST</string>
-		<key>installed_size</key>
-		<integer>2865186</integer>
-		<key>metafile-sha256</key>
-		<string>24841f3efad88aaace694035a64791b3f0ebe96f3c89f563a2354efb2223274c</string>
-		<key>pkgver</key>
-		<string>mlibc-76810d90fd877b7b5908eede2fe83af5be53c4a5_1</string>
-		<key>repository</key>
-		<string>/home/titus/test/jinx-build/build/pkgs</string>
-		<key>run_depends</key>
-		<array>
-			<string>mlibc-headers&gt;=0.0</string>
-		</array>
-		<key>short_desc</key>
-		<string>mlibc</string>
-		<key>state</key>
-		<string>unpacked</string>
-	</dict>
 	<key>mlibc-headers</key>
 	<dict>
 		<key>architecture</key>
 		<string>x86_64</string>
-		<key>automatic-install</key>
-		<true/>
 		<key>filename-sha256</key>
-		<string>4da6721c30a20da491f922d80efa09d90bf3081a4ebba1573c488f2aee826362</string>
+		<string>f0dba953527d47d07c88a3fb137b7513b7a0dc5ca2506bbf8bd8d26a1522a7d5</string>
 		<key>filename-size</key>
-		<integer>34653</integer>
+		<integer>93149</integer>
 		<key>install-date</key>
-		<string>2025-12-04 06:20 EST</string>
+		<string>2025-12-05 01:48 EST</string>
 		<key>installed_size</key>
-		<integer>133680</integer>
+		<integer>347439</integer>
 		<key>metafile-sha256</key>
-		<string>8b64e8cb969839844c6925f78173d5af09e5965d3689f329d6699a2d8a68a074</string>
-		<key>pkgname</key>
-		<string>mlibc-headers</string>
+		<string>810a4960a292545ec2bc031e585c2da97f01dae28c6c3b5f418917e4d0cf3587</string>
 		<key>pkgver</key>
-		<string>mlibc-headers-76810d90fd877b7b5908eede2fe83af5be53c4a5_1</string>
+		<string>mlibc-headers-76810d90fd877b7b5908eede2fe83af5be53c4a5_51</string>
 		<key>repository</key>
 		<string>/home/titus/test/jinx-build/build/pkgs</string>
 		<key>short_desc</key>
