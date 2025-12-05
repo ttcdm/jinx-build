@@ -260,7 +260,7 @@ int sys_read(int fd, void *buf, size_t count, ssize_t *bytes_read) {
 }
 
 int sys_write(int fd, const void *buf, size_t count, ssize_t *bytes_written) {
-    kprintf((char*) buf);
+    syscall_log((char*) buf);
     return 0;
 }
 
@@ -273,7 +273,7 @@ int sys_close(int fd) {
 }
 
 void sys_libc_log(const char *message) {
-    syscall_log(message);
+    syscall_log((char*) message);
 }
 
 [[noreturn]] void sys_libc_panic() {

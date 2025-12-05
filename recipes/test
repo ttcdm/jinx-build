@@ -7,11 +7,11 @@ name=test
 # tarball_sha512="442449e6e3ac4ad6aaff4e79f447af43a175c7edc3465dcbc8b74abc51022a8d753f502e2ca940be282275d7f91947c9d49b22056b5ab17982e07bef2537f33f"
 
 hostdeps="gcc pkg-config"
-deps="core-libs"
+# deps="core-libs"
 
 
 
-prepare() {
+configure() {
     # cp -r /base_dir/mlibc-willowos/sysdeps "${source_dir}/sysdeps/willowos"
     # cp -r /base_dir/mlibc-willowos/abi "${source_dir}/abis/willowos"
     # mkdir -p "${source_dir}/sysdeps/willowos/include/abi-bits"
@@ -23,15 +23,17 @@ prepare() {
     # mkdir -p "${source_dir}/sysdeps/willowos/include/abi-bits"
     # cp -r /base_dir/mlibc-sysdeps/willowos/abi/* "${source_dir}/sysdeps/willowos/include/abi-bits/"
 
+    echo \n\nHIHIHIHI\n\n
 
-    mkdir -p "${source_dir}/src"
+    # mkdir -p "${source_dir}/src"
     # cp -rp /base_dir/src/. "${source_dir}/src/."
     # cp -r /base_dir/src/test.c "${source_dir}/src/test.c"
     # cp -r /base_dir/src/Makefile "${source_dir}/src/Makefile"
 }
 
 build() {
-    cp -rp /base_dir/src/. "${source_dir}/src/."
+    echo ${source_dir}
+    cp -rp /base_dir/src "${source_dir}/src"
 
     make \
         CC=${OS_TRIPLET}-gcc \
