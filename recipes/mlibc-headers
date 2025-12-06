@@ -2,8 +2,9 @@
 
 name=mlibc-headers
 skip_pkg_check=yes
-revision=51
+revision=1
 from_source=mlibc
+imagedeps="meson ninja-build"
 hostdeps="pkg-config"
 
 configure() {
@@ -12,9 +13,9 @@ configure() {
 }
 
 build() {
-    meson compile -j${parallelism}
+    ninja -j${parallelism}
 }
 
 package() {
-    DESTDIR="${dest_dir}" meson install --no-rebuild
+    DESTDIR="${dest_dir}" ninja install
 }
