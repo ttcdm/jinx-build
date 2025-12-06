@@ -1,13 +1,14 @@
-#!/bin/sh
+#! /bin/sh
+
 name=freestnd-c-hdrs
-version=87956bbcad0e1934e708223913be53131311342d
+skip_pkg_check=yes
+version=0.0git
 revision=1
-imagedeps="rsync"
-git_url="https://codeberg.org/osdev/freestnd-c-hdrs"
-commit=${version}
+git_url="https://codeberg.org/osdev/freestnd-c-hdrs.git"
+commit=4039f438fb1dc1064d8e98f70e1cf122f91b763b
 
 build() {
-    rsync -av --exclude='.git' "${source_dir}"/. .
+    cp -rpf "${source_dir}"/. ./
 }
 
 package() {

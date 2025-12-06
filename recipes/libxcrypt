@@ -1,10 +1,10 @@
 #! /bin/sh
 
 name=libxcrypt
-version=4.5.2
+version=4.4.38
 revision=1
 tarball_url="https://github.com/besser82/libxcrypt/releases/download/v${version}/libxcrypt-${version}.tar.xz"
-tarball_blake2b="5954d3b77c5cc0f9e75e47a0f6c3dbbb6e09130875e9047b31cc069f835cf379f13995e16184e69d7b75f228e8d29bc98e4dffa77d95d70628f6847d652c07ea"
+tarball_blake2b="42d594fe36f61a1b5343d9fda22541b09373fe74c587537db8203f9c92120b6c73edef2e1b3d7febda14ae979845405b5fdaeb31dd2b89eedc423b0924ea7cff"
 imagedeps="python3-passlib"
 hostdeps="gcc pkg-config"
 deps="mlibc libgcc libstdc++ libatomic"
