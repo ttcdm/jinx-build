@@ -6,7 +6,7 @@ diff -urN --no-dereference zlib-clean/configure zlib-workdir/configure
    fi
    case "$uname" in
 -  Linux* | linux* | *-linux* | GNU | GNU/* | solaris*)
-+  Linux* | linux* | *-linux* | GNU | GNU/* | solaris* | vinix*)
++  Linux* | linux* | *-linux* | GNU | GNU/* | solaris* | willowos*)
          case "$mname" in
          *sparc*)
              LDFLAGS="${LDFLAGS} -Wl,--no-warn-rwx-segments" ;;

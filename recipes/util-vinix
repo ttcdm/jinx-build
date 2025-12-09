@@ -1,10 +1,10 @@
 #! /bin/sh
 
-name=util-vinix
+name=util-willowos
 skip_pkg_check=yes
 version=0.0git
 revision=1
-source_dir="util-vinix"
+source_dir="util-willowos"
 hostdeps="gcc v"
 deps="core-libs"
 
@@ -14,7 +14,7 @@ build() {
     make -j1 \
         PROD="$PROD" \
         CC=${OS_TRIPLET}-gcc \
-        VFLAGS="-os vinix -gc none" \
+        VFLAGS="-os willowos -gc none" \
         CFLAGS="$TARGET_CFLAGS" \
         LDFLAGS="$TARGET_LDFLAGS"
 }

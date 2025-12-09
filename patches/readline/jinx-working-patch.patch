@@ -6,7 +6,7 @@ diff -urN --no-dereference readline-clean/support/shlib-install readline-workdir
  # link library (in $libdir)
  case "$host_os" in
 -hpux*|darwin*|macosx*|linux*|solaris2*)
-+hpux*|darwin*|macosx*|linux*|solaris2*|vinix*)
++hpux*|darwin*|macosx*|linux*|solaris2*|willowos*)
  	if [ -z "$uninstall" ]; then
  		chmod 755 ${INSTALLDIR}/${LIBNAME}
  	fi ;;
@@ -15,7 +15,7 @@ diff -urN --no-dereference readline-clean/support/shlib-install readline-workdir
  #
  case "$host_os-$host_vendor" in
 -*linux*|freebsd*|dragonfly*)
-+*linux*|freebsd*|dragonfly*|vinix*)
++*linux*|freebsd*|dragonfly*|willowos*)
  	# libname.so.M -> libname.so.M.N
  	${echo} ${RM} ${INSTALLDIR}/$LINK2
  	if [ -z "$uninstall" ]; then

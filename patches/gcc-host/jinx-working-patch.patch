@@ -9,12 +9,12 @@ diff -urN --no-dereference gcc-host-clean/fixincludes/mkfixinc.sh gcc-host-workd
      *-mingw32* | \
      powerpc-*-eabisim* | \
      powerpc-*-eabi*    | \
-diff -urN --no-dereference gcc-host-clean/gcc/config/vinix.h gcc-host-workdir/gcc/config/vinix.h
---- gcc-host-clean/gcc/config/vinix.h	1970-01-01 01:00:00.000000000 +0100
-+++ gcc-host-workdir/gcc/config/vinix.h
+diff -urN --no-dereference gcc-host-clean/gcc/config/willowos.h gcc-host-workdir/gcc/config/willowos.h
+--- gcc-host-clean/gcc/config/willowos.h	1970-01-01 01:00:00.000000000 +0100
++++ gcc-host-workdir/gcc/config/willowos.h
 @@ -0,0 +1,30 @@
-+#undef TARGET_VINIX
-+#define TARGET_VINIX 1
++#undef TARGET_willowos
++#define TARGET_willowos 1
 +
 +#undef LIB_SPEC
 +#define LIB_SPEC "-lc"
@@ -36,10 +36,10 @@ diff -urN --no-dereference gcc-host-clean/gcc/config/vinix.h gcc-host-workdir/gc
 +#undef TARGET_OS_CPP_BUILTINS
 +#define TARGET_OS_CPP_BUILTINS()         \
 +  do {                                   \
-+    builtin_define ("__vinix__");    \
++    builtin_define ("__willowos__");    \
 +    builtin_define ("__mlibc__");         \
 +    builtin_define ("__unix__");         \
-+    builtin_assert ("system=vinix"); \
++    builtin_assert ("system=willowos"); \
 +    builtin_assert ("system=unix");      \
 +    builtin_assert ("system=posix");     \
 +  } while (0);
@@ -78,8 +78,8 @@ diff -urN --no-dereference gcc-host-clean/gcc/config.gcc gcc-host-workdir/gcc/co
  			;;
  	esac
  	;;
-+x86_64-*-vinix*)
-+	tm_file="${tm_file} i386/unix.h i386/att.h elfos.h gnu-user.h glibc-stdint.h i386/x86-64.h i386/gnu-user-common.h i386/gnu-user64.h vinix.h"
++x86_64-*-willowos*)
++	tm_file="${tm_file} i386/unix.h i386/att.h elfos.h gnu-user.h glibc-stdint.h i386/x86-64.h i386/gnu-user-common.h i386/gnu-user64.h willowos.h"
 +	;;
  x86_64-*-fuchsia*)
  	tmake_file="${tmake_file} i386/t-x86_64-elf"
@@ -91,7 +91,7 @@ diff -urN --no-dereference gcc-host-clean/gcc/cp/module.cc gcc-host-workdir/gcc/
  	      set_error (errno);
  	  else
  	    {
-+#ifndef __vinix__
++#ifndef __willowos__
  	      if (madvise (mapping, hdr.pos, MADV_RANDOM))
  		goto fail;
 +#endif
@@ -102,7 +102,7 @@ diff -urN --no-dereference gcc-host-clean/gcc/cp/module.cc gcc-host-workdir/gcc/
      }
    /* We'll be hopping over this randomly.  Some systems declare the
       first parm as char *, and other declare it as void *.  */
-+#ifndef __vinix__
++#ifndef __willowos__
    if (madvise (reinterpret_cast <char *> (mapping), size, MADV_RANDOM))
      goto fail;
 +#endif

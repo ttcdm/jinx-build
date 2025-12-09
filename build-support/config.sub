@@ -146,7 +146,7 @@ case $1 in
 			nto-qnx* | linux-* | uclinux-uclibc* \
 			| uclinux-gnu* | kfreebsd*-gnu* | knetbsd*-gnu* | netbsd*-gnu* \
 			| netbsd*-eabi* | kopensolaris*-gnu* | cloudabi*-eabi* \
-			| storm-chaos* | os2-emx* | rtmk-nova* | managarm-* | vinix-* \
+			| storm-chaos* | os2-emx* | rtmk-nova* | managarm-* | willowos-* \
 			| windows-* )
 				basic_machine=$field1
 				basic_os=$maybe_os
@@ -1326,9 +1326,9 @@ EOF
 		kernel=managarm
 		os=`echo "$basic_os" | sed -e 's|managarm|mlibc|'`
 		;;
-	vinix*)
-		kernel=vinix
-		os=`echo "$basic_os" | sed -e 's|vinix|mlibc|'`
+	willowos*)
+		kernel=willowos
+		os=`echo "$basic_os" | sed -e 's|willowos|mlibc|'`
 		;;
 	*)
 		kernel=
@@ -1830,7 +1830,7 @@ case $kernel-$os-$obj in
 		;;
 	managarm-mlibc*- | managarm-kernel*- )
 		;;
-	vinix-mlibc*- )
+	willowos-mlibc*- )
 		;;
 	windows*-msvc*-)
 		;;

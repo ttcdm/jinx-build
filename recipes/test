@@ -1,0 +1,50 @@
+#! /bin/sh
+
+name=test
+version=1
+revision=1
+
+hostdeps="gcc pkg-config"
+deps="core-libs"
+
+prepare() {
+    true
+}
+
+build() {
+    # echo "current dir: $PWD"
+    # echo "build dir: ${build_dir}"
+    # echo "source dir: ${source_dir}"
+    # echo "base dir: ${base_dir}"
+
+    cp -rp ${base_dir}/src/* "${build_dir}/builds/test"
+
+    echo ""
+    echo "make:"
+    echo "CC=${OS_TRIPLET}-gcc"
+    echo
+    echo
+    echo "CFLAGS=$TARGET_CFLAGS -std=c99"
+    echo
+    echo
+    echo "LDFLAGS=$TARGET_LDFLAGS"
+    echo
+    echo
+
+    make all \
+        CC=${OS_TRIPLET}-gcc \
+        CFLAGS="$TARGET_CFLAGS -std=c99" \
+        LDFLAGS="$TARGET_LDFLAGS" \
+        -j${parallelism}
+    # make all
+}
+
+package() {
+    # cp -r "${build_dir}/builds/test/test" "${dest_dir}/usr/bin/"
+    ##not really sure where this is...
+
+
+    mkdir -p ${dest_dir}
+    echo ${dest_dir}
+    cp -r "${build_dir}/builds/test/test" ${dest_dir}
+}

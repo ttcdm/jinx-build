@@ -168,7 +168,7 @@ diff -urN --no-dereference xbps-clean/lib/fetch/ftp.c xbps-workdir/lib/fetch/ftp
  	sin4->sin_family = AF_INET;
  	*len = sizeof(struct sockaddr_in);
 -#ifndef __linux__
-+#if !defined(__linux__) && !defined(__vinix__)
++#if !defined(__linux__) && !defined(__willowos__)
  	sin4->sin_len = sizeof(struct sockaddr_in);
  #endif
  }

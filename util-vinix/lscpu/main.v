@@ -18,7 +18,7 @@ fn main() {
 				exit(0)
 			}
 			'--version' {
-				println('lscpu from util-vinix')
+				println('lscpu from util-willowos')
 				exit(0)
 			}
 			else {

@@ -1,10 +1,10 @@
-# Vinix
+# willowos
 
-Vinix is an effort to write a modern, fast, and useful operating system in [the V programming language](https://vlang.io).
+willowos is an effort to write a modern, fast, and useful operating system in [the V programming language](https://vlang.io).
 
 Join the [Discord chat](https://discord.gg/S5Nm6ZDU38).
 
-## What is Vinix all about?
+## What is willowos all about?
 
 - Keeping the code as simple and easy to understand as possible, while not sacrificing
 performance and prioritising code correctness.
@@ -15,16 +15,16 @@ virtual machines.
 - Exploring V capabilities in bare metal programming and improving the compiler in response to the uncommon needs of bare metal programming.
 - Having fun.
 
-**Note: Vinix is still pre-alpha software not meant for daily or production usage!**
+**Note: willowos is still pre-alpha software not meant for daily or production usage!**
 
 ![Screenshot 0](/screenshot0.png?raw=true "Screenshot 0")
 ![Screenshot 1](/screenshot1.png?raw=true "Screenshot 1")
 
 ## Download latest nightly image
 
-You can grab a pre-built nightly Vinix image at https://github.com/vlang/vinix/releases
+You can grab a pre-built nightly willowos image at https://github.com/vlang/willowos/releases
 
-Make sure to boot the ISO with enough memory (8+GiB) as, for now, Vinix loads its
+Make sure to boot the ISO with enough memory (8+GiB) as, for now, willowos loads its
 entire root filesystem in a ramdisk in order to be able to more easily boot
 on real hardware.
 
@@ -48,7 +48,7 @@ on real hardware.
 
 ### Distro-agnostic build prerequisites
 
-The following is a distro-agnostic list of packages needed to build Vinix.
+The following is a distro-agnostic list of packages needed to build willowos.
 
 Skip to a paragraph for your host distro if there is any.
 

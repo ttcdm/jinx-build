@@ -11,9 +11,9 @@ diff -urN --no-dereference git-clean/config.mak.uname git-workdir/config.mak.una
 -uname_R := $(shell sh -c 'uname -r 2>/dev/null || echo not')
 -uname_P := $(shell sh -c 'uname -p 2>/dev/null || echo not')
 -uname_V := $(shell sh -c 'uname -v 2>/dev/null || echo not')
-+uname_S := Vinix
++uname_S := willowos
 +uname_M := x86_64
-+uname_O := Vinix
++uname_O := willowos
 +uname_R := 0.0.0
 +uname_P := unknown
 +uname_V := 0.0.0

@@ -17,7 +17,7 @@ build() {
     if [ "$PROD" = "true" ]; then
         PROD_FLAG="-prod"
     fi
-    VCROSS_COMPILER_NAME=${OS_TRIPLET}-gcc v -os vinix -gc none $PROD_FLAG -cflags "$TARGET_CFLAGS" -ldflags "$TARGET_LDFLAGS" .
+    VCROSS_COMPILER_NAME=${OS_TRIPLET}-gcc v -os willowos -gc none $PROD_FLAG -cflags "$TARGET_CFLAGS" -ldflags "$TARGET_LDFLAGS" .
 
     set +x
 }

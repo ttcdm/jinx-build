@@ -5,8 +5,8 @@ diff -urN --no-dereference xf86-input-keyboard-clean/configure xf86-input-keyboa
  SOLARIS_TRUE
  BSD_FALSE
  BSD_TRUE
-+VINIX_FALSE
-+VINIX_TRUE
++willowos_FALSE
++willowos_TRUE
  OS_FLAGS
  inputdir
  XORG_LIBS
@@ -14,8 +14,8 @@ diff -urN --no-dereference xf86-input-keyboard-clean/configure xf86-input-keyboa
  
  # The keyboard driver code is O/S specific
  case $host_os in
-+  vinix*)
-+    IS_VINIX="yes"
++  willowos*)
++    IS_willowos="yes"
 +    ;;
 +
    linux*)
@@ -25,12 +25,12 @@ diff -urN --no-dereference xf86-input-keyboard-clean/configure xf86-input-keyboa
  esac
  
  
-+ if test "x$IS_VINIX" = xyes; then
-+  VINIX_TRUE=
-+  VINIX_FALSE='#'
++ if test "x$IS_willowos" = xyes; then
++  willowos_TRUE=
++  willowos_FALSE='#'
 +else
-+  VINIX_TRUE='#'
-+  VINIX_FALSE=
++  willowos_TRUE='#'
++  willowos_FALSE=
 +fi
 +
   if test "x$IS_BSD" = xyes; then
@@ -40,8 +40,8 @@ diff -urN --no-dereference xf86-input-keyboard-clean/configure xf86-input-keyboa
    as_fn_error $? "conditional \"am__fastdepCC\" was never defined.
  Usually this means the macro was only invoked conditionally." "$LINENO" 5
  fi
-+if test -z "${VINIX_TRUE}" && test -z "${VINIX_FALSE}"; then
-+  as_fn_error $? "conditional \"VINIX\" was never defined.
++if test -z "${willowos_TRUE}" && test -z "${willowos_FALSE}"; then
++  as_fn_error $? "conditional \"willowos\" was never defined.
 +Usually this means the macro was only invoked conditionally." "$LINENO" 5
 +fi
  if test -z "${BSD_TRUE}" && test -z "${BSD_FALSE}"; then
@@ -54,7 +54,7 @@ diff -urN --no-dereference xf86-input-keyboard-clean/src/Makefile.in xf86-input-
  @BSD_TRUE@am__append_1 = $(BSD_SRCS)
  @SOLARIS_TRUE@am__append_2 = $(SOLARIS_SRCS)
  @HURD_TRUE@am__append_3 = $(HURD_SRCS)
-+@VINIX_TRUE@am__append_4 = $(VINIX_SRCS)
++@willowos_TRUE@am__append_4 = $(willowos_SRCS)
  subdir = src
  ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
  am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -63,15 +63,15 @@ diff -urN --no-dereference xf86-input-keyboard-clean/src/Makefile.in xf86-input-
  am__kbd_drv_la_SOURCES_DIST = kbd.c xf86OSKbd.h xf86Keymap.h \
  	atKeynames.h bsd_KbdMap.c bsd_kbd.c bsd_kbd.h at_scancode.c \
 -	sun_kbd.c sun_kbd.h sun_kbdMap.c hurd_kbd.c
-+	sun_kbd.c sun_kbd.h sun_kbdMap.c hurd_kbd.c vinix_kbd.c
++	sun_kbd.c sun_kbd.h sun_kbdMap.c hurd_kbd.c willowos_kbd.c
  am__objects_1 = bsd_KbdMap.lo bsd_kbd.lo at_scancode.lo
  @BSD_TRUE@am__objects_2 = $(am__objects_1)
  am__objects_3 = sun_kbd.lo sun_kbdMap.lo
  @SOLARIS_TRUE@am__objects_4 = $(am__objects_3)
  am__objects_5 = hurd_kbd.lo at_scancode.lo
  @HURD_TRUE@am__objects_6 = $(am__objects_5)
-+am__objects_7 = vinix_kbd.lo at_scancode.lo
-+@VINIX_TRUE@am__objects_8 = $(am__objects_7)
++am__objects_7 = willowos_kbd.lo at_scancode.lo
++@willowos_TRUE@am__objects_8 = $(am__objects_7)
  am_kbd_drv_la_OBJECTS = kbd.lo $(am__objects_2) $(am__objects_4) \
 -	$(am__objects_6)
 +	$(am__objects_6) $(am__objects_8)
@@ -83,7 +83,7 @@ diff -urN --no-dereference xf86-input-keyboard-clean/src/Makefile.in xf86-input-
  am__depfiles_remade = ./$(DEPDIR)/at_scancode.Plo \
  	./$(DEPDIR)/bsd_KbdMap.Plo ./$(DEPDIR)/bsd_kbd.Plo \
 -	./$(DEPDIR)/hurd_kbd.Plo ./$(DEPDIR)/kbd.Plo \
-+	./$(DEPDIR)/hurd_kbd.Plo ./$(DEPDIR)/vinix_kbd.Plo ./$(DEPDIR)/kbd.Plo \
++	./$(DEPDIR)/hurd_kbd.Plo ./$(DEPDIR)/willowos_kbd.Plo ./$(DEPDIR)/kbd.Plo \
  	./$(DEPDIR)/sun_kbd.Plo ./$(DEPDIR)/sun_kbdMap.Plo
  am__mv = mv -f
  COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
@@ -95,12 +95,12 @@ diff -urN --no-dereference xf86-input-keyboard-clean/src/Makefile.in xf86-input-
 +	$(am__append_1) $(am__append_2) $(am__append_3) $(am__append_4)
  kbd_drv_la_LIBADD = $(XORG_LIBS)
  kbd_drv_ladir = @inputdir@
-+VINIX_SRCS = vinix_kbd.c at_scancode.c
++willowos_SRCS = willowos_kbd.c at_scancode.c
  BSD_SRCS = bsd_KbdMap.c bsd_kbd.c bsd_kbd.h at_scancode.c
  HURD_SRCS = hurd_kbd.c at_scancode.c
  SOLARIS_SRCS = sun_kbd.c sun_kbd.h sun_kbdMap.c
 -EXTRA_DIST = $(BSD_SRCS) $(HURD_SRCS) $(SOLARIS_SRCS)
-+EXTRA_DIST = $(VINIX_SRCS) $(BSD_SRCS) $(HURD_SRCS) $(SOLARIS_SRCS)
++EXTRA_DIST = $(willowos_SRCS) $(BSD_SRCS) $(HURD_SRCS) $(SOLARIS_SRCS)
  all: all-am
  
  .SUFFIXES:
@@ -108,7 +108,7 @@ diff -urN --no-dereference xf86-input-keyboard-clean/src/Makefile.in xf86-input-
  @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/bsd_KbdMap.Plo@am__quote@ # am--include-marker
  @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/bsd_kbd.Plo@am__quote@ # am--include-marker
  @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/hurd_kbd.Plo@am__quote@ # am--include-marker
-+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/vinix_kbd.Plo@am__quote@ # am--include-marker
++@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/willowos_kbd.Plo@am__quote@ # am--include-marker
  @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/kbd.Plo@am__quote@ # am--include-marker
  @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sun_kbd.Plo@am__quote@ # am--include-marker
  @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sun_kbdMap.Plo@am__quote@ # am--include-marker
@@ -116,7 +116,7 @@ diff -urN --no-dereference xf86-input-keyboard-clean/src/Makefile.in xf86-input-
  	-rm -f ./$(DEPDIR)/bsd_KbdMap.Plo
  	-rm -f ./$(DEPDIR)/bsd_kbd.Plo
  	-rm -f ./$(DEPDIR)/hurd_kbd.Plo
-+	-rm -f ./$(DEPDIR)/vinix_kbd.Plo
++	-rm -f ./$(DEPDIR)/willowos_kbd.Plo
  	-rm -f ./$(DEPDIR)/kbd.Plo
  	-rm -f ./$(DEPDIR)/sun_kbd.Plo
  	-rm -f ./$(DEPDIR)/sun_kbdMap.Plo
@@ -124,13 +124,13 @@ diff -urN --no-dereference xf86-input-keyboard-clean/src/Makefile.in xf86-input-
  	-rm -f ./$(DEPDIR)/bsd_KbdMap.Plo
  	-rm -f ./$(DEPDIR)/bsd_kbd.Plo
  	-rm -f ./$(DEPDIR)/hurd_kbd.Plo
-+	-rm -f ./$(DEPDIR)/vinix_kbd.Plo
++	-rm -f ./$(DEPDIR)/willowos_kbd.Plo
  	-rm -f ./$(DEPDIR)/kbd.Plo
  	-rm -f ./$(DEPDIR)/sun_kbd.Plo
  	-rm -f ./$(DEPDIR)/sun_kbdMap.Plo
-diff -urN --no-dereference xf86-input-keyboard-clean/src/vinix_kbd.c xf86-input-keyboard-workdir/src/vinix_kbd.c
---- xf86-input-keyboard-clean/src/vinix_kbd.c	1970-01-01 01:00:00.000000000 +0100
-+++ xf86-input-keyboard-workdir/src/vinix_kbd.c
+diff -urN --no-dereference xf86-input-keyboard-clean/src/willowos_kbd.c xf86-input-keyboard-workdir/src/willowos_kbd.c
+--- xf86-input-keyboard-clean/src/willowos_kbd.c	1970-01-01 01:00:00.000000000 +0100
++++ xf86-input-keyboard-workdir/src/willowos_kbd.c
 @@ -0,0 +1,31 @@
 +
 +#ifdef HAVE_CONFIG_H

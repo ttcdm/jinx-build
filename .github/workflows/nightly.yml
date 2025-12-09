@@ -1,11 +1,11 @@
-name: Nightly Vinix rebuild
+name: Nightly willowos rebuild
 
 on:
   schedule:
     - cron: '0 0 * * *'
 
 jobs:
-  vinix-build:
+  willowos-build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -26,14 +26,14 @@ jobs:
       #- name: Build full distro and ISO
       #  run: JINX_CLEAN_WORKDIRS=yes PKGS_TO_INSTALL='*' make all
 
-      #- name: Rename vinix.iso
-      #  run: mv vinix.iso vinix-nightly-full-$(date +'%Y%m%d').iso
+      #- name: Rename willowos.iso
+      #  run: mv willowos.iso willowos-nightly-full-$(date +'%Y%m%d').iso
 
       - name: Build base distro and ISO
         run: JINX_CLEAN_WORKDIRS=yes make all
 
-      - name: Rename vinix.iso
-        run: mv vinix.iso vinix-nightly-base-$(date +'%Y%m%d').iso
+      - name: Rename willowos.iso
+        run: mv willowos.iso willowos-nightly-base-$(date +'%Y%m%d').iso
 
       - name: Set TAG_DATE variable
         run: echo "TAG_DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
@@ -46,8 +46,8 @@ jobs:
         with:
           name: Nightly build ${{ env.TAG_DATE }}
           tag_name: nightly-${{ env.TAG_DATE }}
-          body: Image of an up to date Vinix nightly build.
+          body: Image of an up to date willowos nightly build.
           files: |
-            vinix-nightly-*.iso
+            willowos-nightly-*.iso
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

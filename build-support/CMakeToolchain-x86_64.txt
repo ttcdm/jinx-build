@@ -1,10 +1,10 @@
-set(CMAKE_SYSTEM_NAME Vinix)
+set(CMAKE_SYSTEM_NAME willowos)
 set(CMAKE_SYSTEM_PROCESSOR x86_64)
 
 set(CMAKE_FIND_ROOT_PATH /sysroot)
 
-set(CMAKE_C_COMPILER x86_64-vinix-mlibc-gcc)
-set(CMAKE_CXX_COMPILER x86_64-vinix-mlibc-g++)
+set(CMAKE_C_COMPILER x86_64-willowos-mlibc-gcc)
+set(CMAKE_CXX_COMPILER x86_64-willowos-mlibc-g++)
 
 # search for programs in the build host directories
 SET(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)

@@ -16,7 +16,7 @@ build() {
 
         VCROSS_COMPILER_NAME=${OS_TRIPLET}-gcc \
     v \
-        -os vinix \
+        -os willowos \
         -gc none \
         -prod \
         -autofree \

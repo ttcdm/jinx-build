@@ -26,7 +26,7 @@ fn main() {
 				exit(0)
 			}
 			'--version' {
-				println('fetch from util-vinix')
+				println('fetch from util-willowos')
 				exit(0)
 			}
 			else {

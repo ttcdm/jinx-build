@@ -1,11 +1,11 @@
-QEMUFLAGS ?= -M q35,smm=off -m 8G -cdrom vinix.iso -serial stdio -smp 4
+QEMUFLAGS ?= -M q35,smm=off -m 8G -cdrom willowos.iso -serial stdio -smp 4
 
 .PHONY: all
 all:
-	rm -f vinix.iso
-	$(MAKE) vinix.iso
+	rm -f willowos.iso
+	$(MAKE) willowos.iso
 
-vinix.iso: jinx
+willowos.iso: jinx
 	./build-support/makeiso.sh
 
 .PHONY: debug
@@ -19,11 +19,11 @@ jinx:
 	rm -rf jinx-repo
 
 .PHONY: run-kvm
-run-kvm: vinix.iso
+run-kvm: willowos.iso
 	qemu-system-x86_64 -enable-kvm -cpu host $(QEMUFLAGS)
 
 .PHONY: run-hvf
-run-hvf: vinix.iso
+run-hvf: willowos.iso
 	qemu-system-x86_64 -accel hvf -cpu host $(QEMUFLAGS)
 
 ovmf/ovmf-code-x86_64.fd:
@@ -35,7 +35,7 @@ ovmf/ovmf-vars-x86_64.fd:
 	curl -Lo $@ https://github.com/osdev0/edk2-ovmf-nightly/releases/latest/download/ovmf-vars-x86_64.fd
 
 .PHONY: run-uefi
-run-uefi: vinix.iso ovmf/ovmf-code-x86_64.fd ovmf/ovmf-vars-x86_64.fd
+run-uefi: willowos.iso ovmf/ovmf-code-x86_64.fd ovmf/ovmf-vars-x86_64.fd
 	qemu-system-x86_64 \
 		-enable-kvm \
 		-cpu host \
@@ -44,20 +44,20 @@ run-uefi: vinix.iso ovmf/ovmf-code-x86_64.fd ovmf/ovmf-vars-x86_64.fd
 		$(QEMUFLAGS)
 
 .PHONY: run-bochs
-run-bochs: vinix.iso
+run-bochs: willowos.iso
 	bochs -f bochsrc
 
 .PHONY: run-lingemu
-run-lingemu: vinix.iso
-	lingemu runvirt -m 8192 --diskcontroller type=ahci,name=ahcibus1 --disk vinix.iso,disktype=cdrom,controller=ahcibus1
+run-lingemu: willowos.iso
+	lingemu runvirt -m 8192 --diskcontroller type=ahci,name=ahcibus1 --disk willowos.iso,disktype=cdrom,controller=ahcibus1
 
 .PHONY: run
-run: vinix.iso
+run: willowos.iso
 	qemu-system-x86_64 $(QEMUFLAGS)
 
 .PHONY: clean
 clean:
-	rm -rf iso_root sysroot vinix.iso initramfs.tar
+	rm -rf iso_root sysroot willowos.iso initramfs.tar
 
 .PHONY: distclean
 distclean: clean

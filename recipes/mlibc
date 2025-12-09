@@ -16,9 +16,8 @@ configure() {
         CXXFLAGS="$TARGET_CXXFLAGS" \
         LDFLAGS="$TARGET_LDFLAGS -Wl,/usr/local/libgcc-binaries/libgcc-$ARCHITECTURE.a" \
     meson_configure_noflags \
-        --buildtype=release \
         -Dno_headers=true \
-        -Ddefault_library=both \
+        -Ddefault_library=static \
         -Dlibgcc_dependency=false \
         -Duse_freestnd_hdrs=enabled
 }

@@ -977,11 +977,11 @@ EOF
     *:[Mm]anagarm:*:*)
 	GUESS="$UNAME_MACHINE-unknown-managarm-mlibc"
 	;;
-    x86_64:[Vv]inix:*:*|i?86:[Vv]inix:*:*)
-	GUESS="$UNAME_MACHINE-pc-vinix-mlibc"
+    x86_64:[Ww]illowos:*:*|i?86:[Ww]illowos:*:*)
+	GUESS="$UNAME_MACHINE-pc-willowos-mlibc"
 	;;
-    *:[Vv]inix:*:*)
-	GUESS="$UNAME_MACHINE-unknown-vinix-mlibc"
+    *:[Ww]illowos:*:*)
+	GUESS="$UNAME_MACHINE-unknown-willowos-mlibc"
 	;;
     *:Minix:*:*)
 	GUESS=$UNAME_MACHINE-unknown-minix

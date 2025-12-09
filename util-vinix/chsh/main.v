@@ -34,7 +34,7 @@ fn main() {
 				exit(0)
 			}
 			'--version' {
-				println('chsh from util-vinix')
+				println('chsh from util-willowos')
 				exit(0)
 			}
 			'-s', '--shell' {

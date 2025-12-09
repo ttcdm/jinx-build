@@ -78,7 +78,7 @@ diff -urN --no-dereference ncurses-clean/configure ncurses-workdir/configure
  		LINK_PROGS="$SHELL ${rel_builddir}/mk_prog.sh"
  		LINK_TESTS="$SHELL ${rel_builddir}/mk_prog.sh"
  		;;
-+	(vinix*)
++	(willowos*)
 +		CC_SHARED_OPTS='-fPIC'
 +		MK_SHARED_LIB='${CC} -shared -o $@'
 +		;;

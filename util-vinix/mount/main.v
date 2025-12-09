@@ -24,7 +24,7 @@ fn main() {
 				exit(0)
 			}
 			'--version' {
-				println('mount from util-vinix')
+				println('mount from util-willowos')
 				exit(0)
 			}
 			'-t' {

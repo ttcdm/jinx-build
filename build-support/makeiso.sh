@@ -18,7 +18,7 @@ fi
 # Prepare the iso and boot directories.
 rm -rf iso_root
 mkdir -pv iso_root/boot
-cp sysroot/usr/share/vinix/vinix iso_root/boot/
+cp sysroot/usr/share/willowos/willowos iso_root/boot/
 cp initramfs.tar iso_root/boot/
 cp build-support/limine.conf iso_root/boot/
 
@@ -34,7 +34,7 @@ xorriso -as mkisofs -R -r -J -b boot/limine-bios-cd.bin \
     -no-emul-boot -boot-load-size 4 -boot-info-table -hfsplus \
     -apm-block-size 2048 --efi-boot boot/limine-uefi-cd.bin \
     -efi-boot-part --efi-boot-image --protective-msdos-label \
-    iso_root -o vinix.iso
+    iso_root -o willowos.iso
 
 # Install limine.
-host-pkgs/limine/usr/local/bin/limine bios-install vinix.iso
+host-pkgs/limine/usr/local/bin/limine bios-install willowos.iso

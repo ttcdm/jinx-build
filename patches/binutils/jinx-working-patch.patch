@@ -5,7 +5,7 @@ diff -urN --no-dereference binutils-clean/bfd/config.bfd binutils-workdir/bfd/co
      targ_selvecs=
      targ64_selvecs=x86_64_elf64_vec
      ;;
-+  i[3-7]86-*-vinix*)
++  i[3-7]86-*-willowos*)
 +    targ_defvec=i386_elf32_vec
 +    targ_selvecs=
 +    targ64_selvecs=x86_64_elf64_vec
@@ -17,7 +17,7 @@ diff -urN --no-dereference binutils-clean/bfd/config.bfd binutils-workdir/bfd/co
      targ_selvecs="i386_elf32_vec iamcu_elf32_vec x86_64_elf32_vec"
      want64=true
      ;;
-+  x86_64-*-vinix*)
++  x86_64-*-willowos*)
 +    targ_defvec=x86_64_elf64_vec
 +    targ_selvecs=i386_elf32_vec
 +    want64=true
@@ -44,7 +44,7 @@ diff -urN --no-dereference binutils-clean/gas/configure.tgt binutils-workdir/gas
    i386-*-beos*)				fmt=elf ;;
    i386-*-elfiamcu)			fmt=elf arch=iamcu ;;
    i386-*-elf*)				fmt=elf ;;
-+  i386-*-vinix*)				fmt=elf em=gnu ;;
++  i386-*-willowos*)				fmt=elf em=gnu ;;
    i386-*-fuchsia*)			fmt=elf ;;
    i386-*-haiku*)			fmt=elf em=haiku ;;
    i386-*-genode*)			fmt=elf ;;
@@ -55,7 +55,7 @@ diff -urN --no-dereference binutils-clean/ld/configure.tgt binutils-workdir/ld/c
  i[3-7]86-*-redox*)	targ_emul=elf_i386
  			targ_extra_emuls=elf_x86_64
  			;;
-+i[3-7]86-*-vinix*)	targ_emul=elf_i386
++i[3-7]86-*-willowos*)	targ_emul=elf_i386
 +			targ_extra_emuls=elf_x86_64
 +			;;
  i[3-7]86-*-solaris2*)	targ_emul=elf_i386_sol2
@@ -65,7 +65,7 @@ diff -urN --no-dereference binutils-clean/ld/configure.tgt binutils-workdir/ld/c
  x86_64-*-redox*)	targ_emul=elf_x86_64
  			targ_extra_emuls=elf_i386
  			;;
-+x86_64-*-vinix*)	targ_emul=elf_x86_64
++x86_64-*-willowos*)	targ_emul=elf_x86_64
 +			targ_extra_emuls=elf_i386
 +			;;
  x86_64-*-solaris2*)	targ_emul=elf_x86_64_sol2

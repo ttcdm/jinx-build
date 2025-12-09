@@ -1,4 +1,4 @@
-name: Build Vinix kernel
+name: Build willowos kernel
 
 on:
   pull_request:
@@ -11,7 +11,7 @@ on:
       - "**.md"
 
 jobs:
-  vinix-build:
+  willowos-build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -25,40 +25,40 @@ jobs:
       - name: Download kernel dependencies
         run: cd kernel && ./get-deps
 
-      - name: Attempt to build the Vinix kernel (debug)
+      - name: Attempt to build the willowos kernel (debug)
         run: |
           set -e
           cd kernel
           make PROD=false \
-            CFLAGS="-Ulinux -U__linux -U__linux__ -U__gnu_linux__ -D__vinix__ -O2 -g -pipe" \
+            CFLAGS="-Ulinux -U__linux -U__linux__ -U__gnu_linux__ -D__willowos__ -O2 -g -pipe" \
             V="$(realpath ../v/v)"
           make clean
 
-      - name: Attempt to build the Vinix kernel (prod)
+      - name: Attempt to build the willowos kernel (prod)
         run: |
           set -e
           cd kernel
           make PROD=true \
-            CFLAGS="-Ulinux -U__linux -U__linux__ -U__gnu_linux__ -D__vinix__ -O2 -g -pipe" \
+            CFLAGS="-Ulinux -U__linux -U__linux__ -U__gnu_linux__ -D__willowos__ -O2 -g -pipe" \
             V="$(realpath ../v/v)"
           make clean
 
-      - name: Attempt to build the util-vinix (debug)
+      - name: Attempt to build the util-willowos (debug)
         run: |
           set -e
-          cd util-vinix
+          cd util-willowos
           make PROD=false \
-            VFLAGS="-os vinix -gc none" \
-            CFLAGS="-Ulinux -U__linux -U__linux__ -U__gnu_linux__ -D__vinix__ -O2 -g -pipe" \
+            VFLAGS="-os willowos -gc none" \
+            CFLAGS="-Ulinux -U__linux -U__linux__ -U__gnu_linux__ -D__willowos__ -O2 -g -pipe" \
             V="$(realpath ../v/v)"
           make clean
 
-      - name: Attempt to build the util-vinix (prod)
+      - name: Attempt to build the util-willowos (prod)
         run: |
           set -e
-          cd util-vinix
+          cd util-willowos
           make PROD=true \
-            VFLAGS="-os vinix -gc none" \
-            CFLAGS="-Ulinux -U__linux -U__linux__ -U__gnu_linux__ -D__vinix__ -O2 -g -pipe" \
+            VFLAGS="-os willowos -gc none" \
+            CFLAGS="-Ulinux -U__linux -U__linux__ -U__gnu_linux__ -D__willowos__ -O2 -g -pipe" \
             V="$(realpath ../v/v)"
           make clean

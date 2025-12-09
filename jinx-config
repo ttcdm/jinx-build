@@ -16,7 +16,7 @@ fi
 
 JINX_ARCH=${ARCHITECTURE}
 
-OS_TRIPLET=$ARCHITECTURE-vinix-mlibc
+OS_TRIPLET=$ARCHITECTURE-willowos-mlibc
 
 case "$ARCHITECTURE" in
     x86_64)

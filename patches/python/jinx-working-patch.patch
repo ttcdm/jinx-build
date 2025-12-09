@@ -19,7 +19,7 @@ diff -urN --no-dereference python-clean/Objects/mimalloc/prim/unix/prim.c python
  #include <unistd.h>    // sysconf
  #include <fcntl.h>     // open, close, read, access
  
-+#if defined(__vinix__)
++#if defined(__willowos__)
 +  #define MADV_DONTNEED 1
 +#endif
 +
@@ -31,7 +31,7 @@ diff -urN --no-dereference python-clean/Objects/mimalloc/prim/unix/prim.c python
  #endif
  
 -#if !defined(__HAIKU__) && !defined(__APPLE__) && !defined(__CYGWIN__) && !defined(_AIX) && !defined(__OpenBSD__) && !defined(__FreeBSD__) && !defined(__sun) && !defined(__NetBSD__)
-+#if !defined(__vinix__) && !defined(__HAIKU__) && !defined(__APPLE__) && !defined(__CYGWIN__) && !defined(_AIX) && !defined(__OpenBSD__) && !defined(__FreeBSD__) && !defined(__sun) && !defined(__NetBSD__)
++#if !defined(__willowos__) && !defined(__HAIKU__) && !defined(__APPLE__) && !defined(__CYGWIN__) && !defined(_AIX) && !defined(__OpenBSD__) && !defined(__FreeBSD__) && !defined(__sun) && !defined(__NetBSD__)
    #define MI_HAS_SYSCALL_H
    #include <sys/syscall.h>
  #endif
@@ -39,7 +39,7 @@ diff -urN --no-dereference python-clean/Objects/mimalloc/prim/unix/prim.c python
  static int unix_madvise(void* addr, size_t size, int advice) {
    #if defined(__sun)
    return madvise((caddr_t)addr, size, advice);  // Solaris needs cast (issue #520)
-+  #elif defined(__vinix__)
++  #elif defined(__willowos__)
 +  (void)addr; (void)size; (void)advice;
 +  return 0;
    #else

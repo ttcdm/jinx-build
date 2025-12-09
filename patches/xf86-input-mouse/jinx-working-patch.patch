@@ -14,15 +14,15 @@ diff -urN --no-dereference xf86-input-mouse-clean/configure xf86-input-mouse-wor
    gnu*)
      OS_MOUSE_NAME=hurd
      ;;
-+  vinix*)
-+    OS_MOUSE_NAME=vinix
++  willowos*)
++    OS_MOUSE_NAME=willowos
 +    ;;
  esac
  
  
-diff -urN --no-dereference xf86-input-mouse-clean/src/vinix_mouse.c xf86-input-mouse-workdir/src/vinix_mouse.c
---- xf86-input-mouse-clean/src/vinix_mouse.c	1970-01-01 01:00:00.000000000 +0100
-+++ xf86-input-mouse-workdir/src/vinix_mouse.c
+diff -urN --no-dereference xf86-input-mouse-clean/src/willowos_mouse.c xf86-input-mouse-workdir/src/willowos_mouse.c
+--- xf86-input-mouse-clean/src/willowos_mouse.c	1970-01-01 01:00:00.000000000 +0100
++++ xf86-input-mouse-workdir/src/willowos_mouse.c
 @@ -0,0 +1,119 @@
 +#ifdef HAVE_XORG_CONFIG_H
 +#include <xorg-config.h>
@@ -58,7 +58,7 @@ diff -urN --no-dereference xf86-input-mouse-clean/src/vinix_mouse.c xf86-input-m
 +    int32_t y_mov;
 +};
 +
-+static void vinixReadInput(InputInfoPtr pInfo) {
++static void willowosReadInput(InputInfoPtr pInfo) {
 +    MouseDevPtr mouse = pInfo->private;
 +    struct mouse_packet packet;
 +
@@ -74,7 +74,7 @@ diff -urN --no-dereference xf86-input-mouse-clean/src/vinix_mouse.c xf86-input-m
 +    }
 +}
 +
-+static Bool vinixPreInit(InputInfoPtr pInfo, const char *proto, int flag) {
++static Bool willowosPreInit(InputInfoPtr pInfo, const char *proto, int flag) {
 +    MouseDevPtr mouse;
 +
 +    mouse = pInfo->private;
@@ -90,7 +90,7 @@ diff -urN --no-dereference xf86-input-mouse-clean/src/vinix_mouse.c xf86-input-m
 +    }
 +
 +    mouse->CommonOptions(pInfo);
-+    pInfo->read_input = vinixReadInput;
++    pInfo->read_input = willowosReadInput;
 +    return true;
 +}
 +
@@ -112,7 +112,7 @@ diff -urN --no-dereference xf86-input-mouse-clean/src/vinix_mouse.c xf86-input-m
 +}
 +
 +static const char *names[] = {
-+    "VinixMouseDev", NULL
++    "willowosMouseDev", NULL
 +};
 +
 +static const char **protonames() {
@@ -120,7 +120,7 @@ diff -urN --no-dereference xf86-input-mouse-clean/src/vinix_mouse.c xf86-input-m
 +}
 +
 +static const char *defaultproto() {
-+    return "VinixMouseDev";
++    return "willowosMouseDev";
 +}
 +
 +static Bool isdefault(const char *protocol) {
@@ -140,6 +140,6 @@ diff -urN --no-dereference xf86-input-mouse-clean/src/vinix_mouse.c xf86-input-m
 +    p->FindDevice = getdevice;
 +    p->DefaultProtocol = defaultproto;
 +    p->CheckProtocol = isdefault;
-+    p->PreInit = vinixPreInit;
++    p->PreInit = willowosPreInit;
 +    return p;
 +}
