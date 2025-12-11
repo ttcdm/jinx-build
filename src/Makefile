@@ -19,10 +19,6 @@ override CFLAGS += \
 	-fno-lto \
 	-fno-PIC \
 	-fno-pie \
-	-mno-80387 \
-	-mno-mmx \
-	-mno-sse \
-	-mno-sse2 \
 	-mno-red-zone \
 	-m64
 
