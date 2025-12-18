@@ -98,6 +98,7 @@ int sys_vm_map(void *hint, size_t size, int prot, int flags, int fd, int64_t off
     int ret;
     uint64_t num = 7;
 
+    syscall_log("\n\nsyscall_log and sys_vm_map called\n\n");
     sys_libc_log("HERE sys_vm_map called\n");
 
     //we don't have permissions for file access yet so we're just gonna ignore prot
@@ -297,6 +298,10 @@ int get_current_thread_syscall(thread_context** thread) {//16
     uint64_t num = 16;
     asm volatile("syscall" : "=a"(ret): "D"(num), "S"(thread): "memory");
     return ret;
+}
+
+int sys_isatty(int fd) {
+    while (1);
 }
 
 //HERE remember namespace mlibc

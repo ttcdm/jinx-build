@@ -137,6 +137,7 @@ void sys_libc_log(const char *message);
 //__attribute__((noreturn))
 [[noreturn]] void sys_libc_panic();
 
+int sys_isatty(int fd);
 
 
 
