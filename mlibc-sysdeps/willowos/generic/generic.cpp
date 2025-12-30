@@ -9,7 +9,8 @@
 #include <errno.h>
 // #include <fcntl.h>
 #include <limits.h>
-#include <mlibc/all-sysdeps.hpp>
+// #include <mlibc/all-sysdeps.hpp>
+#include <mlibc/ansi-sysdeps.hpp>
 #include <mlibc/debug.hpp>
 // #include <syscall.h>
 #include <stdint.h>
