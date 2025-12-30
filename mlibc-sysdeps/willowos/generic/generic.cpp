@@ -81,7 +81,7 @@ int sys_anon_allocate(size_t size, void **pointer) {//13
     int ret;
     uint64_t num = 13;
 
-    sys_libc_log("HERE sys_anon_allocate called\n");
+    sys_libc_log("sys_anon_allocate called\n");
 
     asm volatile("syscall" : "=a"(ret): "D"(num), "S"(size), "d"(pointer): "memory");
     return ret;
@@ -99,8 +99,9 @@ int sys_vm_map(void *hint, size_t size, int prot, int flags, int fd, int64_t off
     int ret;
     uint64_t num = 7;
 
-    syscall_log("\n\nsyscall_log and sys_vm_map called\n\n");
-    sys_libc_log("HERE sys_vm_map called\n");
+    // syscall_log("\n\nsyscall_log and sys_vm_map called\n\n");
+    // sys_libc_log("HERE sys_vm_map called\n");
+    sys_libc_log("sys_vm_map called\n");
 
     //we don't have permissions for file access yet so we're just gonna ignore prot
 
@@ -257,7 +258,7 @@ int sys_clock_get(int clock, time_t *secs, long *nanos) {
 int sys_tcb_set(void *pointer) {
     int ret;
     uint64_t num = 18;
-    syscall_log("\n\nsys_tcb_set called\n\n");
+    syscall_log("sys_tcb_set called\n");
     asm volatile("syscall" : "=a"(ret): "D"(num), "S"(pointer): "memory");
     return ret;
 }
