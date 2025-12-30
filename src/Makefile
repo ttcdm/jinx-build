@@ -22,7 +22,11 @@ override CFLAGS += \
 	-mno-80387 \
 	-mno-mmx \
 	-mno-red-zone \
-	-m64
+	-m64 \
+	-Wall \
+	-Wextra \
+	-g \
+	-O0
 
 override CPPFLAGS += \
     $(CPPFLAGS) \

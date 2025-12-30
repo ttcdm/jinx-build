@@ -2,6 +2,7 @@
 
 name=mlibc
 skip_pkg_check=yes
+from_source="mlibc"
 version=0.0git
 revision=1
 git_url="https://github.com/managarm/mlibc.git"

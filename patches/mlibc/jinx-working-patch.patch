@@ -1,8 +1,7 @@
-diff --git mlibc-clean/meson.build mlibc-workdir/meson.build
-index 37f8200..2046023 100644
+diff -urN --no-dereference mlibc-clean/meson.build mlibc-workdir/meson.build
 --- mlibc-clean/meson.build
 +++ mlibc-workdir/meson.build
-@@ -273,6 +273,10 @@ elif host_machine.system() == 'nyaux'
+@@ -273,6 +273,10 @@
  	rtld_include_dirs += include_directories('sysdeps/nyaux/include')
  	libc_include_dirs += include_directories('sysdeps/nyaux/include')
  	subdir('sysdeps/nyaux')
