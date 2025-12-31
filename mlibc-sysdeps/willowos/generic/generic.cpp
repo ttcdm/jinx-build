@@ -19,8 +19,12 @@
 // #include <sys/types.h>
 
 
-//HERE
+//HERE remember namespace mlibc
 namespace mlibc {
+
+
+//HERE the code under this line should be 1:1 with syscalls.h for willowOS aside from the possible type mismatches, i.e., mode_t vs int, off_t vs int64_t, and so on
+
 
 int syscall_log(char* fmt, ...) {//15
     int ret;
@@ -141,6 +145,9 @@ int sys_vm_map(void *hint, size_t size, int prot, int flags, int fd, int64_t off
     if (((prot & ( 1 << 2 )) >> 2) == 0) {//PROT_EXEC
         perm |= 1ULL << 63;//no execute
     }
+
+    perm |= 0b01;//mark the page as present
+
     //we have to use 1ULL because 1 defaults to int which is 16 or 32 bits wide i don't remember 
     //HERE remember to cast 1 to a ull and maybe have a constant(s?).h to have macros for it as well
 
@@ -247,7 +254,6 @@ int sys_vm_unmap(void *pointer, size_t size) {//8
     asm volatile("syscall" : "=a"(ret): "D"(num), "S"(pointer), "d"(size): "memory");
 }
 
-//might be a time_t instead of uint64_t thing that was preventing mlibc from building
 //HERE remember to fill these in
 //also we define time_t as int64_t inside willowOS but here idk if we should
 int sys_clock_get(int clock, time_t *secs, long *nanos) {
@@ -255,7 +261,7 @@ int sys_clock_get(int clock, time_t *secs, long *nanos) {
     //HERE add num as well
 }
 
-int sys_tcb_set(void *pointer) {
+int sys_tcb_set(void *pointer) {//18
     int ret;
     uint64_t num = 18;
     syscall_log("sys_tcb_set called\n");
@@ -310,6 +316,8 @@ int sys_isatty(int fd) {
     // while (1);
     return 0;
 }
+
+
 
 //HERE remember namespace mlibc
 }
